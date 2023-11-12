@@ -1,8 +1,4 @@
-﻿using Dapper;
-using IWantApp.Endpoints.Employees;
-using Microsoft.Data.SqlClient;
-
-namespace IWantApp.infra.Data;
+﻿namespace IWantApp.infra.Data;
 
 public class QueryAllUsersWithClaimName
 {
@@ -13,7 +9,7 @@ public class QueryAllUsersWithClaimName
         this.configuration = configuration;
     }
 
-    public IEnumerable<EmployeeResponse> Execute(int page, int rows)
+    public async Task<IEnumerable<EmployeeResponse>> Execute(int page, int rows)
     {
         var db = new SqlConnection(configuration["ConnectionString:IWantDb"]);
         var query = @"SELECT Email, ClaimValue as Name
@@ -22,7 +18,7 @@ public class QueryAllUsersWithClaimName
                 on u.Id = c.UserId and ClaimType = 'Name'
                 order by name
                 OFFSET (@page -1 ) * @rows ROWS FETCH NEXT @rows ROWS ONLY";
-       return db.Query<EmployeeResponse>(
+       return await db.QueryAsync<EmployeeResponse>(
           query,
           new { page, rows }
           );

@@ -7,6 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Using Include="Flunt.Notifications" />
+
+    <Using Include="Microsoft.AspNetCore.Identity" />
+    <Using Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <Using Include="Microsoft.AspNetCore.Authorization" />
+    <Using Include="Microsoft.EntityFrameworkCore" />
+    <Using Include="Microsoft.AspNetCore.Mvc" />
+    <Using Include="System.Security.Claims" />
+    <Using Include="Microsoft.IdentityModel.Tokens" />
+    <Using Include="System.IdentityModel.Tokens.Jwt" />
+    <Using Include="System.Text" />
+    <Using Include="Dapper" />
+    <Using Include="Microsoft.Data.SqlClient" />
+    <Using Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    
+    <Using Include="IWantApp.Endpoints.Security" />
+    <Using Include="IWantApp.Domain.Products" />
+    <Using Include="IWantApp.Endpoints.Categories" />
+    <Using Include="IWantApp.infra.Data" />
+    <Using Include="IWantApp.Endpoints.Employees" />
+
+
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.11" />
     <PackageReference Include="Flunt" Version="2.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.12" />
@@ -17,6 +42,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
+    <PackageReference Include="Serilog" Version="3.1.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
